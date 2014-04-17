@@ -1,0 +1,23 @@
+header.navbar.navbar-static-top.bs-docs-nav#top role='banner'
+  .container
+    .navbar-header
+      button.navbar-toggle type='button' data-toggle='collapse' data-target='.bs-navbar-collapse'
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href=relative('/') = site.name
+    nav.collapse.navbar-collapse.bs-navbar-collapse role='navigation'
+      ul.nav.navbar-nav
+        /TODO active class
+        li
+          a href=relative('/news/') News
+        li
+          a href=relative('/projects/') Projects
+        li
+          a href=relative('/authors/') Authors
+      ul.nav.navbar-nav.navbar-right
+        li
+          a href='https://github.com/NetEase/' target='_blank' Github
+        li
+          a href=relative('/feed.atom') RSS

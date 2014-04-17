@@ -1,0 +1,22 @@
+meta charset='utf-8'
+meta http-equiv='X-UA-Compatible' content='IE=edge'
+meta name='viewport' content='width=device-width, initial-scale=1'
+meta name='description' content='NetEase opensource website.'
+meta name='keywords' content='NetEase, opensource'
+meta name='author' content='Zhong Jianxin'
+
+title = page.title
+
+link href=relative('/stylesheets/styles.css') rel='stylesheet'
+link href=relative('/stylesheets/docs.css') rel='stylesheet'
+
+/[if lt IE 9]
+  script src='http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
+  script src='http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
+
+/TODO favicon
+/link rel='apple-touch-icon-precomposed' sizes='144x144' href=relative('/assets/ico/apple-touch-icon-144-precomposed.png')
+/link rel='icon' href=relative('/assets/ico/favicon.ico')
+
+- if site.google_analytics
+  = google_analytics_async

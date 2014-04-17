@@ -1,0 +1,23 @@
+doctype html
+html lang='en'
+  head
+    = partial('header.html.slim')
+  body
+    a.sr-only.sr-only-focusable href='#content' Skip to main content
+
+    /Nav
+    = partial('nav-main.html.slim')
+
+    .bs-docs-header#content
+      .container
+        h1 = page.title
+        p = page.subtitle
+
+    .container.bs-docs-container
+      .row
+        .col-md-9 role='main'
+          = content
+        .col-md-3
+          .bs-docs-sidebar.hidden-print role='complementary'
+            ul.nav.bs-docs-sidenav
+            a.back-to-top href='#top' Back to top
