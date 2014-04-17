@@ -1,3 +1,16 @@
 // customize bootstrap variables here:
 @import "variables";
 @import "bootstrap";
+
+.row.project-list a {
+  color: $gray-dark;
+}
+
+.bs-docs-header {
+  margin-bottom: 0 !important;
+}
+
+.bs-docs-footer {
+  text-align: left !important;
+  padding-top: 20px !important;
+}
