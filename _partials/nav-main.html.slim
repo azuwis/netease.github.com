@@ -9,12 +9,9 @@ header.navbar.navbar-static-top.bs-docs-nav#top role='banner'
       a.navbar-brand href=relative('/') = site.name
     nav.collapse.navbar-collapse.bs-navbar-collapse role='navigation'
       ul.nav.navbar-nav
-        li class="#{'active' if page.url == '/news/'}"
-          a href=relative('/news/') News
-        li class="#{'active' if page.url == '/projects/'}"
-          a href=relative('/projects/') Projects
-        li class="#{'active' if page.url == '/authors/'}"
-          a href=relative('/authors/') Authors
+        - site.nav.each do |nav|
+          li class="#{'active' if page.url == nav}"
+            a href=relative(nav) = nav.gsub('/', '').capitalize
       ul.nav.navbar-nav.navbar-right
         li
           a href='https://github.com/NetEase/' target='_blank' Github
