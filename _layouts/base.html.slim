@@ -6,7 +6,7 @@ html lang='en'
     a.sr-only.sr-only-focusable href='#content' Skip to main content
 
     /Nav
-    = partial('nav-main.html.slim')
+    = partial('nav-main.html.slim', url: page.url)
 
     .bs-docs-header#content
       .container

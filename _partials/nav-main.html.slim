@@ -9,12 +9,11 @@ header.navbar.navbar-static-top.bs-docs-nav#top role='banner'
       a.navbar-brand href=relative('/') = site.name
     nav.collapse.navbar-collapse.bs-navbar-collapse role='navigation'
       ul.nav.navbar-nav
-        /TODO active class
-        li
+        li class="#{'active' if page.url == '/news/'}"
           a href=relative('/news/') News
-        li
+        li class="#{'active' if page.url == '/projects/'}"
           a href=relative('/projects/') Projects
-        li
+        li class="#{'active' if page.url == '/authors/'}"
           a href=relative('/authors/') Authors
       ul.nav.navbar-nav.navbar-right
         li
