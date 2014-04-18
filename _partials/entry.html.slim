@@ -1,0 +1,7 @@
+.post
+  h1.page-header
+    a href=page.post.url = page.post.title
+  span.pull-right
+    | #{page.post.date.strftime('%d %B %Y')} / #{page.author || site.author}
+  .content
+    = page.post.content
