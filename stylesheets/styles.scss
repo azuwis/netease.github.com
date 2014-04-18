@@ -8,6 +8,9 @@
 
 .bs-docs-header {
   margin-bottom: 0 !important;
+  h1, p {
+    margin-right: 0 !important;
+  }
 }
 
 .bs-docs-footer {
