@@ -1,0 +1,13 @@
+---
+layout: base
+title: Project Overview
+---
+.bs-docs-section
+  h1.page-header List of Projects
+  /p.lead List of opensource projects.
+  .row.project-list
+    - site.projects.each do |project|
+      .col-sm-4
+        h3
+          a href=project.url = project.title
+        = project.desc

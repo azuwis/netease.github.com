@@ -27,6 +27,8 @@ source 'https://rubygems.org'                             # This tells Bundler w
 gem 'awestruct', '~> 0.5.3'                               # Goes without saying
 gem 'webrick', '~> 1.3.1'                                 # The rack webserver to use in dev mode
 
+gem 'kramdown'
+
 # FIXME
 # gem 'rake', '>= 0.9.2'                                  # Needed for the Rakefile to work
 # gem 'coffee-script', '>= 2.2.0'                         # If using coffee-script or to remove the warning
