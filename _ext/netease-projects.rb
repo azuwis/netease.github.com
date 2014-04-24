@@ -8,6 +8,11 @@ module Netease
       @default_layout   = opts[:default_layout] || 'project'
     end
 
+    def capitalize(string)
+      string[0] = string[0].upcase
+      string
+    end
+
     def execute(site)
       projects = []
       Dir[ "#{site.dir}/#{@projects_dir}/*" ].each do |entry|
@@ -21,9 +26,9 @@ module Netease
 
             # title
             splited_title = parsed_html.css('h1, h2')[0].text.split(' - ')
-            project.title = splited_title[0].capitalize
+            project.title = capitalize(splited_title[0])
             if splited_title.size > 1
-              project.subtitle = splited_title[1..-1].join(' - ').capitalize
+              project.subtitle = capitalize(splited_title[1..-1].join(' - '))
             end
 
             # desc
