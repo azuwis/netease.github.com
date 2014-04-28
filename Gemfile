@@ -27,7 +27,7 @@ source 'https://rubygems.org'                             # This tells Bundler w
 gem 'awestruct', '~> 0.5.3'                               # Goes without saying
 gem 'webrick', '~> 1.3.1'                                 # The rack webserver to use in dev mode
 
-gem 'kramdown'
+gem 'redcarpet'
 
 # FIXME
 # gem 'rake', '>= 0.9.2'                                  # Needed for the Rakefile to work

@@ -2,6 +2,8 @@ name: NetEase OpenSource
 title: NetEase OpenSource
 org: NetEase.com, Inc.
 author: Zhong Jianxin
+redcarpet:
+  :lax_spacing: true
 profiles:
   development:
     base_url: ''
