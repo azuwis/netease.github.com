@@ -20,8 +20,8 @@ module Netease
 
         # remove meta data
         html_ul = html_main.css('ul')
-        if html_ul.css('li').text.include?('Tags:')
-          html_ul.remove
+        if html_ul.size > 0 && html_ul[0].css('li').text.include?('Tags:')
+          html_ul[0].remove
         end
 
         html.to_html
