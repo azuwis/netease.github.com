@@ -18,6 +18,7 @@ module Netease
       Dir[ "#{site.dir}/#{@projects_dir}/*" ].each do |entry|
         project = {}
         if (File.directory?("#{entry}/.git"))
+          # readme
           readme_files = Dir.glob("#{entry}/README.md", File::FNM_CASEFOLD)
           readme_files += Dir.glob("#{entry}/README", File::FNM_CASEFOLD)
           if readme_files.size > 0
@@ -51,6 +52,50 @@ module Netease
 
             projects << project
             site.pages << project
+          end
+
+          # authors
+          author_files = Dir.glob("#{entry}/AUTHORS", File::FNM_CASEFOLD)
+          author_files += Dir.glob("#{entry}/AUTHOR", File::FNM_CASEFOLD)
+          if author_files.size > 0
+            project.authors = []
+            author_text = open(author_files[0]).readlines
+            pattern = /
+              ^[-*]
+              \s+
+              (?<name>[^<]+)       # name
+              /x
+            author = {}
+            author_text.each do |line|
+              if line =~ pattern
+                # save previous author when matching next one
+                if author.has_key?(:name)
+                  project.authors << author
+                  author = {}
+                end
+                author[:name] = $~[:name].strip
+                line.scan(/<([^>]+)>/) do |item|
+                  case item[0]
+                  when /^https?:\/\//
+                    author[:homepage] = item[0]
+                  when /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+                    author[:email] = item[0]
+                  when /^(?<key>\w+):\s?@?(?<value>.+)/
+                    author[$~[:key].downcase.to_sym] = $~[:value]
+                  end
+                end
+              else
+                if author[:desc] == nil
+                  author[:desc] = line
+                else
+                  author[:desc] += line
+                end
+              end
+              # save author at EOF
+              if line == author_text.last
+                project.authors << author
+              end
+            end
           end
         end
       end
