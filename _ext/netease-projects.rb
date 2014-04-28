@@ -19,7 +19,7 @@ module Netease
         project = {}
         if (File.directory?("#{entry}/.git"))
           readme_files = Dir.glob("#{entry}/README.md", File::FNM_CASEFOLD)
-          readme_files = readme_files + Dir.glob("#{entry}/README", File::FNM_CASEFOLD)
+          readme_files += Dir.glob("#{entry}/README", File::FNM_CASEFOLD)
           if readme_files.size > 0
             project = site.engine.load_page(readme_files[0])
             parsed_html = Nokogiri::HTML(project.content)
