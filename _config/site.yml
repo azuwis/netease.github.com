@@ -14,6 +14,6 @@ profiles:
   production:
     base_url: http://code.netease.com
 nav:
-  - /news/
   - /projects/
   - /authors/
+  - /news/
