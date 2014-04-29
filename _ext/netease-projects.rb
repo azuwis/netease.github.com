@@ -73,7 +73,7 @@ module Netease
                   project.authors << author
                   author = {}
                 end
-                author[:name] = $~[:name].strip
+                author[:name] = capitalize($~[:name].strip)
                 line.scan(/<([^>]+)>/) do |item|
                   case item[0]
                   when /^https?:\/\//
