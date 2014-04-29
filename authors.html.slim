@@ -4,3 +4,36 @@ title: Authors
 ---
 .bs-docs-section
   h1.page-header List of Authors
+  .row.author-list
+    - site.projects.each do |project|
+      - project.authors.each do |author|
+        .col-md-6
+          .well.well-sm
+            .media
+              .thumbnail.pull-left
+                img.media-object width='100px' src='http://placehold.it/100x100'
+              .media-body
+                h3.media-heading = author.name
+                - if author.desc
+                  p = author.desc
+                p
+                  - if author.homepage
+                    a.btn.btn-xs.btn-default href=author.homepage target='_blank'
+                      i.fa.fa-lg.fa-fw.fa-home
+                      | Homepage
+                  - if author.email
+                    a.btn.btn-xs.btn-default href="mailto:#{author.email}"
+                      i.fa.fa-lg.fa-fw.fa-envelope
+                      | Email
+                  - if author.weibo
+                    a.btn.btn-xs.btn-default href="http://weibo.com/n/#{author.weibo}" target='_blank'
+                      i.fa.fa-lg.fa-fw.fa-weibo
+                      | Weibo
+                  - if author.twitter
+                    a.btn.btn-xs.btn-default href="https://twitter.com/#{author.twitter}" target='_blank'
+                      i.fa.fa-lg.fa-fw.fa-twitter
+                      | Twitter
+                  - if author.github
+                    a.btn.btn-xs.btn-default href="https://github.com/#{author.github}" target='_blank'
+                      i.fa.fa-lg.fa-fw.fa-github
+                      | Github
